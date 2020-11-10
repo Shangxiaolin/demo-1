@@ -1,0 +1,40 @@
+ 安装nodejs
+ 安装git
+ 安装tomcat
+ 
+ 安装typescript：
+ npm install -g typescript typings
+ 
+ 安装cli：
+ npm install -g @angular/cli@7.3.5
+ 
+ 查看ng版本
+ ng -v 
+ 
+ 创建编译项目：
+ ng new cashwaycloud-web --style less
+ 
+ 进入项目：
+ cd cashwaycloud-web
+ 
+ 添加ng-alain脚手架：
+ ng add ng-alain
+ 
+ 从svn中将前端项目中的package.json文件，src整个目录拷贝到当前目录
+ 
+添加项目依赖包
+npm install
+yarn
+
+编译项目
+ ng build --aot
+ 
+ 将当前目录下的dist目录拷贝到tomcat安装目录的/webapps目录下
+ 修改tomcat安装目录下的/conf/server.xml文件
+ 在<host>节点中添加如下节点：
+ <Context docBase="dist" path="/"  reloadable="false" ></Context>
+ 将tomcat默认启动端口改为4200
+ 运行tomcat目录下/bin/startup.bat脚本启动前端服务
+ 
+ 修改command目录下bat脚本：将脚本中的d:/project改为实际项目目录
+ 执行bat脚本即可编译并启动对应服务，优先启动eureka服务，其他服务无先后顺序
